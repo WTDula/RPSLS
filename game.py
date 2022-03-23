@@ -22,9 +22,22 @@ class Game():
     def turn(self, current_player):
         current_player.select_gesture()
 
+    def compare_gestures(self, string_one, string_two):
+        if string_one == string_two:
+            self.show_options()
+            pass
+
+    def show_rules(self):
+        print("Rock crushes Scissors\t\ttScissors cuts Paper\nPaper covers Rock\t\tRock crushes Lizard\n Lizard poisons Spock\t\t Spock smashes Scissors\n Scissors decapitates Lizard\t\t Lizard eats Paper\n Paper disproves Spock\t\t Spock vaporizes Rock")
 
     def show_options(self):
-        #print("The following are all of your gesture options: ")
- 
+        print("Here are the gestures: ")
+        for gesture in self.player_one.gestures:
+            print(gesture)
+        self.show_rules()
+
     def display_winners(self):
         pass
+
+g1 = Game()
+g1.show_options()
