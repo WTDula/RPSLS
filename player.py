@@ -1,3 +1,3 @@
 class Player:
     def __init__(self):
-        pass
+        self.gestures = ['rock', 'paper', 'scissors', 'lizard', 'spock']
