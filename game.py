@@ -5,17 +5,11 @@ from ai import AI
 class Game():
     def __init__(self):
         self.leaderboard = [] #append a tuple of name of player and append score i.e ("John", 3)
-        self.player_one = Human()
+        self.human_one = Human()
         self.player_two = None 
 
 
-    def run_game(self):
-        #single player / multiplayer selection
-        #display_welcome()
-        #show_options()
-        #self.single_player_multi_player_selection()
-        #display_winner
-        pass
+
 
     def single_player_multi_player_selection(self):
         user_input = None
@@ -23,19 +17,21 @@ class Game():
             user_input = int(input("Do you you want to play single player or multiplayer: <Select (1) for single player | Select (2) for multiplayer>"))
             if user_input == 1 or user_input == 2:
                 if user_input == 1:
-                    human_one = Human()
-                    player_two = AI()
-                    self.compare_gestures_AI(human_one, player_two)
+                    self.human_one = Human()
+                    self.player_two = AI()
+                    self.compare_gestures_AI(self.human_one, self.player_two)
+                    return
                 else:
-                    human_one = Human()
-                    player_two = Human()
-                    self.compare_gestures_multiplayer(human_one, player_two)
+                    self.human_one = Human()
+                    self.player_two = Human()
+                    self.compare_gestures_multiplayer(self.human_one, self.player_two)
+                    return
 
     def display_welcome(self):
         print("Welcome to Rock, Paper, Scissors, Lizard, Spock")
         self.show_rules()
         print("Best of 3 wins: ")
-        self.single_player_multi_player_selection()
+
 
 
     def compare_gestures_AI(self, player_one, player_two):
@@ -187,8 +183,8 @@ class Game():
 
     def show_options(self):
         print("Use the following numbers to select the gesture: ")
-        for gesture in self.player_one.gestures:
-            gesture_index = self.player_one.gestures.index(gesture)
+        for gesture in self.human_one.gestures:
+            gesture_index = self.human_one.gestures.index(gesture)
             print(f"{gesture} : {gesture_index}")
         self.show_rules()
 
@@ -198,10 +194,10 @@ class Game():
         else:
             print("Player two wins")
 
+    def run_game(self):
+        self.display_welcome()
+        self.show_options()
+        self.single_player_multi_player_selection()
+        self.display_winners(self.human_one, self.player_two)
 
-g1 = Game()
-g1.show_options()
-p1 = Human()
-p2 = AI()
-# g1.compare_gestures(p1, p2)
-print(int(random.choice(range(0, len(p2.gestures)))))
+
