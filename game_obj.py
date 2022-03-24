@@ -14,12 +14,3 @@ class GameObj:
         self.rpsls_list.append(Scissors())
         self.rpsls_list.append(Lizard())
         self.rpsls_list.append(Spock())
-
-
-# g1 = GameObj()
-# g1.create_game_obj()
-# for item in g1.rpsls_list:
-#     print(item.name)
-# r1 = Rock()
-# s1 = Scissors()
-# print(r1.do_i_win(s1))
