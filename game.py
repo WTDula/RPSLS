@@ -186,9 +186,8 @@ class Game():
     def show_options(self):
         print("Use the following numbers to select the gesture: ")
         for gesture in self.human_one.gestures:
-            gesture_index = self.human_one.gestures.index(gesture)
+            gesture_index = self.human_one.gestures.index(gesture) 
             print(f"{gesture} : {gesture_index}")
-        self.show_rules()
 
     def display_winners(self, player_one, player_two):
         if player_one.scores > player_two.scores:
