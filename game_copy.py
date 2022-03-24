@@ -8,6 +8,7 @@ class GameCopy():
         self.player_one = Human()
         self.player_two = AI() #Default to AI unless otherwise specified 
         self.game_obj = GameObj()
+        self.is_single_player = False
         
 
     def run_game(self):
@@ -26,12 +27,14 @@ class GameCopy():
                 if user_input == 2: #initiates multiplayer mode
                     print("You have selected multiplayer mode:")
                     self.player_two = Human()
-                    self.compare_gestures_multiplayer()
+                    self.is_single_player = False
+                    self.compare_gestures()
                     return
                 else:
                     print("You have selected single player mode:")
-                    self.compare_gestures_AI() #initates single player mode
-                    return
+                    self.is_single_player = True
+                    self.compare_gestures()
+                    return 
                     
 
     def display_welcome(self):
@@ -40,38 +43,18 @@ class GameCopy():
         print("Best of 3 wins: ")
         print("---------------------------------------------------")
 
-
-    def compare_gestures_AI(self):
-        #ask user for current gesture
-        user_input_one = int(input("Type the gesture that you want:  ")) #player one
-        user_input_two = random.choice(range(0, len(self.player_two.gestures))) #player two
-        while user_input_one in range(0 , 5) and user_input_two in range(0 , 5):
-            p1 = self.game_obj.rpsls_list[user_input_one]
-            p2 = self.game_obj.rpsls_list[user_input_two]
-            if p1.do_i_win(p2):
-                self.player_one.scores += 1
-            elif p2.do_i_win(p1):
-                self.player_two.scores += 1
-            else:
-                print(f"It's a tie") #if input is equal
-            print("---------------------------------------------------")
-
-            if(self.player_one.scores == 2 or self.player_two.scores == 2):
-                self.display_winners()
-                return
-            user_input_one = int(input("Select the number of your gesture:  "))
-            user_input_two = random.choice(range(0, len(self.player_two.gestures)))
-            while user_input_one > 4 or user_input_one < 0:
-                user_input_one = int(input("Select the number of your gesture:  "))
-                
-            
-    def compare_gestures_multiplayer(self):
-        #ask user for current gesture
+    def compare_gestures(self):
         user_input_one = int(input("Select the number of your gesture for player one:  ")) #player one
-        user_input_two = int(input("Select the number of your gesture for player two:  ")) #player two
-        while user_input_one in range(0 , 5) and user_input_two in range(0 , 5):
+        opponent_input = True
+        while user_input_one in range(0 , 5) and opponent_input:
+                #ask user for current gesture
+            if self.is_single_player:
+                opponent_input = self.player_two.choose_gesture()
+            else:
+                opponent_input = self.player_one.choose_gesture()
+        
             p1 = self.game_obj.rpsls_list[user_input_one]
-            p2 = self.game_obj.rpsls_list[user_input_two]
+            p2 = self.game_obj.rpsls_list[opponent_input]
             if p1.do_i_win(p2):
                 self.player_one.scores += 1
             elif p2.do_i_win(p1):
@@ -84,12 +67,9 @@ class GameCopy():
                 self.display_winners()
                 return
             user_input_one = int(input("Select the number of your gesture for player one:  "))
-            user_input_two = int(input("Select the number of your gesture for player two:  "))
-            while(user_input_one > 4 or user_input_one < 0) or (user_input_two > 4 or user_input_two < 0):
+            while(user_input_one > 4 or user_input_one < 0) or (opponent_input > 4 or opponent_input < 0):
                 user_input_one = int(input("Select the number of your gesture for player one:  "))
-                user_input_two = int(input("Select the number of your gesture for player two:  "))
-            
-
+                opponent_input = self.player_two.choose_gesture()
 
 
     def show_rules(self):
@@ -107,5 +87,3 @@ class GameCopy():
             print("Player one wins!")
         else:
             print("Player two wins!")
-
-    
