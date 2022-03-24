@@ -40,7 +40,7 @@ class Game():
         user_input_one = int(input("Select the number of your gesture:  ")) #player one
         user_input_two = random.choice(range(0, len(player_two.gestures))) #player two
         while user_input_one in range(0 , 6) and user_input_two in range(0 , 6):
-            while player_one.scores < 2 and player_two.scores < 2:
+            # while player_one.scores < 2 and player_two.scores < 2:
                 if user_input_one == 0 and user_input_two == 1:
                     print(f"{user_input_one} and {user_input_two} : Paper covers Rock") #add one to player two counter
                     player_two.scores += 1
@@ -103,6 +103,9 @@ class Game():
                     player_two.scores += 1
                 else:
                     print(f"{user_input_one} ties {user_input_two}") #if input is equal
+                if(player_one.scores == 2 or player_two.scores == 2):
+                    self.display_winners(player_one, player_two)
+                    return
                 user_input_one = int(input("Select the number of your gesture:  "))
                 user_input_two = random.choice(range(0, len(player_two.gestures)))
 
@@ -206,4 +209,4 @@ class Game():
 
 
 g1 = Game()
-g1.compare_gestures_multiplayer(Human(), Human())
+g1.compare_gestures_AI(Human(), AI())
