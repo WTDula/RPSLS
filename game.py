@@ -43,67 +43,67 @@ class Game():
         while user_input_one in range(0 , 6) and user_input_two in range(0 , 6):
             # while player_one.scores < 2 and player_two.scores < 2:
             if user_input_one == 0 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Paper covers Rock") #add one to player two counter
+                print("Paper covers Rock") #add one to player two counter
                 self.player_two.scores += 1
             elif user_input_one == 0 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Scissors")
+                print("Rock crushes Scissors")
                 self.player_one.scores += 1
             elif user_input_one == 0 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Lizard")
+                print("Rock crushes Lizard")
                 self.player_one.scores += 1
             elif user_input_one == 0 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Spock vaporizes Rock")
+                print("Spock vaporizes Rock")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Paper covers Rock")
+                print("Paper covers Rock")
                 self.player_one.scores += 1
             elif user_input_one == 1 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Scissors cuts Paper")
+                print("Scissors cuts Paper")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Lizard eats Paper")
+                print("Lizard eats Paper")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Paper disproves Spock")
+                print("Paper disproves Spock")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Scissors")
+                print("Rock crushes Scissors")
                 self.player_two.scores += 1
             elif user_input_one == 2 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Scissors cuts Paper")
+                print("Scissors cuts Paper")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Scissors decapitates Lizard")
+                print("Scissors decapitates Lizard")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Spock smashes Scissors")
+                print("Spock smashes Scissors")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Lizard")
+                print("Rock crushes Lizard")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Lizard eats Paper")
+                print("Lizard eats Paper")
                 self.player_one.scores += 1
             elif user_input_one == 3 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Scissors decapitates Lizard")
+                print("Scissors decapitates Lizard")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Lizard poisons Spock")
+                print("Lizard poisons Spock")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Spock vaporizes Rock")
+                print("Spock vaporizes Rock")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Paper disproves Spock")
+                print("Paper disproves Spock")
                 self.player_two.scores += 1
             elif user_input_one == 4 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Spock smashes Scissors")
+                print("Spock smashes Scissors")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Lizard poisons Spock")
+                print("Lizard poisons Spock")
                 self.player_two.scores += 1
             else:
-                print(f"{user_input_one} ties {user_input_two}") #if input is equal
+                print(f"It's a tie") #if input is equal
             print("---------------------------------------------------")
             if(self.player_one.scores == 2 or self.player_two.scores == 2):
                 self.display_winners()
@@ -118,67 +118,67 @@ class Game():
         while user_input_one in range(0 , 6) and user_input_two in range(0 , 6):
         # while player_one.scores < 2 and player_two.scores < 2:
             if user_input_one == 0 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Paper covers Rock") #add one to player two counter
+                print("Paper covers Rock") #add one to player two counter
                 self.player_two.scores += 1
             elif user_input_one == 0 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Scissors")
+                print("Rock crushes Scissors")
                 self.player_one.scores += 1
             elif user_input_one == 0 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Lizard")
+                print("Rock crushes Lizard")
                 self.player_one.scores += 1
             elif user_input_one == 0 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Spock vaporizes Rock")
+                print("Spock vaporizes Rock")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Paper covers Rock")
+                print("Paper covers Rock")
                 self.player_one.scores += 1
             elif user_input_one == 1 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Scissors cuts Paper")
+                print("Scissors cuts Paper")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Lizard eats Paper")
+                print("Lizard eats Paper")
                 self.player_two.scores += 1
             elif user_input_one == 1 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Paper disproves Spock")
+                print("Paper disproves Spock")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Scissors")
+                print("Rock crushes Scissors")
                 self.player_two.scores += 1
             elif user_input_one == 2 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Scissors cuts Paper")
+                print("Scissors cuts Paper")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Scissors decapitates Lizard")
+                print("Scissors decapitates Lizard")
                 self.player_one.scores += 1
             elif user_input_one == 2 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Spock smashes Scissors")
+                print("Spock smashes Scissors")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Rock crushes Lizard")
+                print("Rock crushes Lizard")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Lizard eats Paper")
+                print("Lizard eats Paper")
                 self.player_one.scores += 1
             elif user_input_one == 3 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Scissors decapitates Lizard")
+                print("Scissors decapitates Lizard")
                 self.player_two.scores += 1
             elif user_input_one == 3 and user_input_two == 4:
-                print(f"{user_input_one} and {user_input_two} : Lizard poisons Spock")
+                print("Lizard poisons Spock")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 0:
-                print(f"{user_input_one} and {user_input_two} : Spock vaporizes Rock")
+                print("Spock vaporizes Rock")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 1:
-                print(f"{user_input_one} and {user_input_two} : Paper disproves Spock")
+                print("Paper disproves Spock")
                 self.player_two.scores += 1
             elif user_input_one == 4 and user_input_two == 2:
-                print(f"{user_input_one} and {user_input_two} : Spock smashes Scissors")
+                print("Spock smashes Scissors")
                 self.player_one.scores += 1
             elif user_input_one == 4 and user_input_two == 3:
-                print(f"{user_input_one} and {user_input_two} : Lizard poisons Spock")
+                print("Lizard poisons Spock")
                 self.player_two.scores += 1
             else:
-                print(f"{user_input_one} ties {user_input_two}") #if input is equal
+                print(f"It's a tie") #if input is equal
             print("---------------------------------------------------")
             if(self.player_one.scores == 2 or self.player_two.scores == 2):
                 self.display_winners()
