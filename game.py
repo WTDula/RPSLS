@@ -4,7 +4,6 @@ from ai import AI
 
 class Game():
     def __init__(self):
-        self.leaderboard = [] #append a tuple of name of player and append score i.e ("John", 3)
         self.player_one = Human()
         self.player_two = AI() #Default to AI unless otherwise specified 
 
@@ -16,18 +15,18 @@ class Game():
 
     def single_player_multi_player_selection(self):
         user_input = None
-        while True:
+        while True: #Input handling
             print("---------------------------------------------------")
             user_input = int(input("Do you you want to play single player or multiplayer: <Select (1) for single player | Select (2) for multiplayer>  "))
             if user_input == 1 or user_input == 2:
-                if user_input == 1:
-                    self.player_two = AI()
-                    self.compare_gestures_AI()
-                    return
-                else:
+                if user_input == 2: #initiates multiplayer mode
                     self.player_two = Human()
                     self.compare_gestures_multiplayer()
                     return
+                else:
+                    self.compare_gestures_AI() #initates single player mode
+                    return
+                    
 
     def display_welcome(self):
         print("Welcome to Rock, Paper, Scissors, Lizard, Spock")
@@ -40,8 +39,9 @@ class Game():
         #ask user for current gesture
         user_input_one = int(input("Select the number of your gesture:  ")) #player one
         user_input_two = random.choice(range(0, len(self.player_two.gestures))) #player two
-        while user_input_one in range(0 , 6) and user_input_two in range(0 , 6):
-            # while player_one.scores < 2 and player_two.scores < 2:
+        while user_input_one in range(0 , 5) and user_input_two in range(0 , 5):
+            if user_input_one > 4 or user_input_one < 0:
+                break
             if user_input_one == 0 and user_input_two == 1:
                 print("Paper covers Rock") #add one to player two counter
                 self.player_two.scores += 1
@@ -110,13 +110,15 @@ class Game():
                 return
             user_input_one = int(input("Select the number of your gesture:  "))
             user_input_two = random.choice(range(0, len(self.player_two.gestures)))
+            while user_input_one > 4 or user_input_one < 0:
+                user_input_one = int(input("Select the number of your gesture:  "))
+                
             
     def compare_gestures_multiplayer(self):
         #ask user for current gesture
-        user_input_one = int(input("Select the number of your gesture:  ")) #player one
-        user_input_two = int(input("Select the number of your gesture:  ")) #player two
-        while user_input_one in range(0 , 6) and user_input_two in range(0 , 6):
-        # while player_one.scores < 2 and player_two.scores < 2:
+        user_input_one = int(input("Select the number of your gesture for player one:  ")) #player one
+        user_input_two = int(input("Select the number of your gesture for player two:  ")) #player two
+        while user_input_one in range(0 , 5) and user_input_two in range(0 , 5):
             if user_input_one == 0 and user_input_two == 1:
                 print("Paper covers Rock") #add one to player two counter
                 self.player_two.scores += 1
@@ -183,8 +185,11 @@ class Game():
             if(self.player_one.scores == 2 or self.player_two.scores == 2):
                 self.display_winners()
                 return
-            user_input_one = int(input("Select the number of your gesture:  "))
-            user_input_two = int(input("Select the number of your gesture:  "))
+            user_input_one = int(input("Select the number of your gesture for player one:  "))
+            user_input_two = int(input("Select the number of your gesture for player two:  "))
+            while(user_input_one > 4 or user_input_one < 0) or (user_input_two > 4 or user_input_two < 0):
+                user_input_one = int(input("Select the number of your gesture for player one:  "))
+                user_input_two = int(input("Select the number of your gesture for player two:  "))
             
 
 
