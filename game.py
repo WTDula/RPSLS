@@ -8,7 +8,10 @@ class Game():
         self.human_one = Human()
         self.player_two = None 
 
-
+    def run_game(self):
+            self.display_welcome()
+            self.show_options()
+            self.single_player_multi_player_selection()
 
 
     def single_player_multi_player_selection(self):
@@ -103,6 +106,7 @@ class Game():
                     player_two.scores += 1
                 else:
                     print(f"{user_input_one} ties {user_input_two}") #if input is equal
+                print("---------------------------------------------------")
                 if(player_one.scores == 2 or player_two.scores == 2):
                     self.display_winners(player_one, player_two)
                     return
@@ -177,6 +181,7 @@ class Game():
                     player_two.scores += 1
                 else:
                     print(f"{user_input_one} ties {user_input_two}") #if input is equal
+                print("---------------------------------------------------")
                 if(player_one.scores == 2 or player_two.scores == 2):
                     self.display_winners(player_one, player_two)
                     return
@@ -197,16 +202,8 @@ class Game():
 
     def display_winners(self, player_one, player_two):
         if player_one.scores == 2:
-            print("Player one wins")
+            print("Player one wins!")
         else:
-            print("Player two wins")
+            print("Player two wins!")
 
-    def run_game(self):
-        self.display_welcome()
-        self.show_options()
-        self.single_player_multi_player_selection()
-        self.display_winners(self.human_one, self.player_two)
-
-
-g1 = Game()
-g1.compare_gestures_AI(Human(), AI())
+    
