@@ -11,3 +11,5 @@ class Spock(Gesture):
         elif other_gesture.name == "Rock":
             print("Spock vaporizes Rock")
             return True
+        else:
+            return False

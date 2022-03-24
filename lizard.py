@@ -5,4 +5,11 @@ class Lizard(Gesture):
         self.name = "Lizard"
 
     def do_i_win(self, other_gesture):
-        pass
+        if other_gesture.name == "Spock":
+            print("Lizard poisons Spock")
+            return True
+        elif other_gesture.name == "Paper":
+            print("Lizard eats Paper")
+            return True
+        else:
+            return False

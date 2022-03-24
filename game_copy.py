@@ -1,4 +1,5 @@
 import random
+from game_obj import GameObj
 from human import Human
 from ai import AI
 
@@ -6,8 +7,11 @@ class Game():
     def __init__(self):
         self.player_one = Human()
         self.player_two = AI() #Default to AI unless otherwise specified 
+        self.game_obj = GameObj()
+        
 
     def run_game(self):
+            self.game_obj.create_game_obj()
             self.display_welcome()
             self.show_options()
             self.single_player_multi_player_selection()
@@ -37,11 +41,28 @@ class Game():
 
     def compare_gestures_AI(self):
         #ask user for current gesture
-        user_input_one = int(input("Select the number of your gesture:  ")) #player one
+        user_input_one = int(input("Type the gesture that you want:  ")) #player one
         user_input_two = random.choice(range(0, len(self.player_two.gestures))) #player two
         while user_input_one in range(0 , 5) and user_input_two in range(0 , 5):
-            if user_input_one > 4 or user_input_one < 0:
-                break
+            p1 = self.game_obj.rpsls_list[user_input_one]
+            p2 = self.game_obj.rpsls_list[user_input_two]
+            if p1.do_i_win(p2):
+                self.player_one.scores += 1
+            else:
+                self.player_two += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
             if user_input_one == 0 and user_input_two == 1:
                 print("Paper covers Rock") #add one to player two counter
                 self.player_two.scores += 1
