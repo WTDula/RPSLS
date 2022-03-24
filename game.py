@@ -14,7 +14,8 @@ class Game():
     def single_player_multi_player_selection(self):
         user_input = None
         while True:
-            user_input = int(input("Do you you want to play single player or multiplayer: <Select (1) for single player | Select (2) for multiplayer>"))
+            print("---------------------------------------------------")
+            user_input = int(input("Do you you want to play single player or multiplayer: <Select (1) for single player | Select (2) for multiplayer>  "))
             if user_input == 1 or user_input == 2:
                 if user_input == 1:
                     self.human_one = Human()
@@ -31,7 +32,7 @@ class Game():
         print("Welcome to Rock, Paper, Scissors, Lizard, Spock")
         self.show_rules()
         print("Best of 3 wins: ")
-
+        print("---------------------------------------------------")
 
 
     def compare_gestures_AI(self, player_one, player_two):
@@ -179,7 +180,8 @@ class Game():
 
 
     def show_rules(self):
-        print("Rock crushes Scissors\t\ttScissors cuts Paper\nPaper covers Rock\t\tRock crushes Lizard\n Lizard poisons Spock\t\t Spock smashes Scissors\n Scissors decapitates Lizard\t\t Lizard eats Paper\n Paper disproves Spock\t\t Spock vaporizes Rock")
+        print("---------------------------------------------------")
+        print("Rock crushes Scissors\t\tScissors cuts Paper\nPaper covers Rock\t\tRock crushes Lizard\nLizard poisons Spock\t\tSpock smashes Scissors\nScissors decapitates Lizard\tLizard eats Paper\nPaper disproves Spock\t\tSpock vaporizes Rock")
 
     def show_options(self):
         print("Use the following numbers to select the gesture: ")
